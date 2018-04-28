@@ -8,8 +8,6 @@ POST with content type of `application/x-www-form-urlencoded` with the following
   - `hub.lease_seconds` - optional, how long it should be active for
   - `hub.secret` - a subscriber provided cryptographically random unique secret string used to compute an HMAC digest (only for https)
 
-mix phx.gen.schema Subscription subscriptions topic_url:string callback_url:string created_at:date updated_at:date expired_at:date\
-
 ### Subscription
   - id (internal)
   - subscription_id: [topic_url, callback_url]
@@ -35,3 +33,7 @@ mix phx.gen.schema Subscription subscriptions topic_url:string callback_url:stri
 - [ ] The Hub allows Subscribers to re-request already active subscriptions, extending the lease duration.
 - [ ] The Hub sends the full contents of the topic URL in the distribution request.
 - [ ] The Hub sends a valid signature for subscriptions that were made with a secret.
+
+### Generate
+
+- subscription `mix phx.gen.schema Subscription subscriptions topic_url:string callback_url:string expired_at:date\`
