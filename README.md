@@ -12,14 +12,15 @@ mix phx.gen.schema Subscription subscriptions topic_url:string callback_url:stri
 
 ### Subscription
   - id (internal)
-  - topic_url
-  - callback_url
+  - subscription_id: [topic_url, callback_url]
   - created_at
   - updated_at
   - expired_at
 
+### Todo
+- [ ] Enforce [topic_url,callback_url] as a real id in the database
+
 ### Implement
-- [ ] [TEST] Discovering the hub and topic URLs by looking at the HTTP headers of the resource URL.
 - [ ] Subscribing to the hub with a callback URL.
 - [ ] Subscribing to the hub and requesting a specific lease duration.
 - [ ] Subscribing to the hub with a secret and handling authenticated content distribution.
