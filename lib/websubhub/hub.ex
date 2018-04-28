@@ -11,16 +11,7 @@ defmodule Websubhub.Hub do
   end
 
   def pull(_) do
-    IO.inspect('pull messages from the gpubsub queue')
-
-    subscription = %Kane.Subscription{topic: %Kane.Topic{name: System.get_env("PUBSUB_TOPIC")}}
-    {:ok, messages} = Kane.Subscription.pull(subscription)
-
-    Enum.each messages, fn(mess)->
-      process_message(mess)
-    end
-
-    Kane.Subscription.ack(subscription, messages)
+    {:ok}
   end
 
   def process_message(message) do

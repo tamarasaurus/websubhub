@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :websubhub, Websubhub.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "websubhub_test",
+  username: "websub",
+  password: "websub",
+  database: "websubhub_dev",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
