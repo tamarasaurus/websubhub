@@ -17,6 +17,9 @@ POST with content type of `application/x-www-form-urlencoded` with the following
 
 ### Todo
 - [x] Enforce [topic_url,callback_url] as a real id in the database
+- [ ] Create root hub controller
+      - `GET /` - Use HAL to represent availble operations
+      - `POST /` - Publish topic updates and distribute contents to subscribers
 
 ### Implement
 - [ ] Subscribing to the hub with a callback URL.

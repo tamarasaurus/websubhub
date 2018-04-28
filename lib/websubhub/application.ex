@@ -1,15 +1,12 @@
 defmodule Websubhub.Application do
   use Application
 
-  # [applications: [:kane]]
-
   def start(_type, _args) do
     import Supervisor.Spec
 
     children = [
       supervisor(Websubhub.Repo, []),
-      supervisor(WebsubhubWeb.Endpoint, []),
-      worker(Websubhub.Hub, [])
+      supervisor(WebsubhubWeb.Endpoint, [])
     ]
 
     opts = [strategy: :one_for_one, name: Websubhub.Supervisor]

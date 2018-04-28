@@ -22,14 +22,6 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
-IO.inspect(System.get_env("PUBSUB_EMULATOR_HOST"))
-
-config :kane,
-  endpoint: System.get_env("PUBSUB_EMULATOR_HOST")
-
-config :goth,
-  json: "#{System.user_home()}/gcloud.json" |> File.read!
-
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
