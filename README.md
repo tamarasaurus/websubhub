@@ -18,7 +18,7 @@ mix phx.gen.schema Subscription subscriptions topic_url:string callback_url:stri
   - expired_at
 
 ### Todo
-- [ ] Enforce [topic_url,callback_url] as a real id in the database
+- [x] Enforce [topic_url,callback_url] as a real id in the database
 
 ### Implement
 - [ ] Subscribing to the hub with a callback URL.

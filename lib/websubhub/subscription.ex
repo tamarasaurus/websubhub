@@ -3,9 +3,9 @@ defmodule Websubhub.Subscription do
   import Ecto.Changeset
 
   schema "subscriptions" do
-    field :callback_url, :string
+    field :callback_url, :string, primary_key: true
     field :expired_at, :date
-    field :topic_url, :string
+    field :topic_url, :string, primary_key: true
 
     timestamps()
   end
