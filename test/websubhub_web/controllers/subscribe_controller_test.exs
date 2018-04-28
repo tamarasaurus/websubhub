@@ -15,7 +15,7 @@ defmodule WebsubhubWeb.SubscribeControllerTest do
   describe "posting to /unsubscribe with" do
     test "the wrong parameters returns a 404"
     test "the wrong content type returns a 404"
-    test "the right parameters removes a subscription from the database"
+    test "the right parameters removes a subscription from the database and returns a 410"
   end
 
 end
