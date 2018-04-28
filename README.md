@@ -9,7 +9,8 @@ POST with content type of `application/x-www-form-urlencoded` with the following
   - `hub.secret` - a subscriber provided cryptographically random unique secret string used to compute an HMAC digest (only for https)
 
 ### Subscription
-  - id [topic_url, callback_url]
+  - id (internal)
+  - subscription_id (tuple of [topic_url, callback_url])
   - callback_url
   - ?subscriber
   - topic_url

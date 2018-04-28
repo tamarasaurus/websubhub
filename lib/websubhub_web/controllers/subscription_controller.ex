@@ -1,25 +1,33 @@
 defmodule WebsubhubWeb.SubscriptionController do
   use WebsubhubWeb, :controller
 
-  # create and store subscription in the db
   def subscribe(conn, %{
       "hub.callback" => callback,
-       # subscribe
-      "hub.mode" => mode,
-       # subscription_id
+      "hub.mode" => "subscribe",
       "hub.topic" => topic,
-       # store in the hub
       "hub.secret" => secret
   }) do
-    # return the success of the subscription
-    # store the subscription in the database
-    json conn, %{callback: callback, mode: mode, topic: topic, secret: secret}
+    if get_req_header(conn, "content-type") == ["application/x-www-form-urlencoded; charset=utf-8"] do
+      json conn, %{callback: callback, mode: "subscribe", topic: topic, secret: secret}
+    end
+
+    send_not_found(conn)
   end
 
-  # unsubscribe
-  def unsubscribe(conn, %{ "subscription_id" => subscription_id }) do
-    # delete subscription from the database
-    # return 410
-    text conn, "unsubscribed from #{subscription_id}"
+  def subscribe(conn, _params) do
+    send_not_found(conn)
+  end
+
+  defp send_not_found(conn) do
+    conn
+      |> send_resp(404, "Not found")
+      |> halt()
+  end
+
+  def unsubscribe(conn, %{
+    "subscription_id" => subscription_id,
+    "hub.mode" => "unsubscribe"
+  }) do
+    send_resp(conn, 410, "Unsubscribed from #{subscription_id}")
   end
 end
