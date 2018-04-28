@@ -1,4 +1,4 @@
-defmodule WebsubhubWeb.SubscriptionController do
+defmodule WebsubhubWeb.SubscribeController do
   use WebsubhubWeb, :controller
 
   def subscribe(conn, %{
@@ -8,6 +8,7 @@ defmodule WebsubhubWeb.SubscriptionController do
       "hub.secret" => secret
   }) do
     if get_req_header(conn, "content-type") == ["application/x-www-form-urlencoded; charset=utf-8"] do
+
       json conn, %{callback: callback, mode: "subscribe", topic: topic, secret: secret}
     end
 
