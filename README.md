@@ -8,15 +8,15 @@ POST with content type of `application/x-www-form-urlencoded` with the following
   - `hub.lease_seconds` - optional, how long it should be active for
   - `hub.secret` - a subscriber provided cryptographically random unique secret string used to compute an HMAC digest (only for https)
 
+mix phx.gen.schema Subscription subscriptions topic_url:string callback_url:string created_at:date updated_at:date expired_at:date\
+
 ### Subscription
   - id (internal)
-  - subscription_id (tuple of [topic_url, callback_url])
-  - callback_url
-  - ?subscriber
   - topic_url
+  - callback_url
   - created_at
   - updated_at
-  - expire_at
+  - expired_at
 
 ### Implement
 - [ ] [TEST] Discovering the hub and topic URLs by looking at the HTTP headers of the resource URL.
