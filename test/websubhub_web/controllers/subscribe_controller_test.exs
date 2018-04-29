@@ -72,9 +72,51 @@ defmodule WebsubhubWeb.SubscribeControllerTest do
   end
 
   describe "posting to /unsubscribe with" do
-    test "the wrong parameters returns a 404"
-    test "the wrong content type returns a 404"
-    test "the right parameters removes a subscription from the database and returns a 410"
+    test "the wrong parameters returns a 404", %{conn: conn} do
+      response = post(conn, "/unsubscribe", %{ "test" => "nothing"})
+      assert response.status == 404
+      response = post(conn, "/unsubscribe")
+      assert response.status == 404
+    end
+
+    test "the right parameters removes a subscription from the database and returns a 410", %{conn: conn} do
+      correct_params = %{
+        "hub.callback" => "callback1",
+        "hub.mode" => "subscribe",
+        "hub.topic" => "topic1",
+        "hub.secret" => "secret"
+      }
+
+      response = conn
+        |> put_req_header("content-type", "application/x-www-form-urlencoded; charset=utf-8")
+        |> post("/subscribe", correct_params)
+
+      assert response.status == 200
+
+      subscription = Websubhub.Repo.get_by(
+        Websubhub.Subscription,
+        callback_url: "callback1",
+        topic_url: "topic1"
+      )
+
+      assert subscription
+
+      response = post(conn, "/unsubscribe", %{
+        "callback_url" => "callback1",
+        "topic_url" => "topic1",
+        "hub.mode" => "unsubscribe"
+      })
+
+      assert response.status == 410
+
+      subscription = Websubhub.Repo.get_by(
+        Websubhub.Subscription,
+        callback_url: "callback1",
+        topic_url: "topic1"
+      )
+
+      assert subscription == nil
+    end
   end
 
 end

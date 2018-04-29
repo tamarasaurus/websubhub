@@ -29,11 +29,23 @@ defmodule WebsubhubWeb.SubscribeController do
   end
 
   def unsubscribe(conn, %{
-    "subscription_id" => subscription_id,
+    "callback_url" => callback_url,
+    "topic_url" => topic_url,
     "hub.mode" => "unsubscribe"
   }) do
-    send_resp(conn, 410, "Unsubscribed from #{subscription_id}")
+    subscription = Websubhub.Repo.get_by(
+      Websubhub.Subscription,
+      callback_url: callback_url,
+      topic_url: topic_url
+    )
+
+    Websubhub.Repo.delete!(subscription)
+
+    conn
+      |> put_status(410)
   end
+
+  def unsubscribe(conn, _params) do send_not_found(conn) end
 
   defp upsert_subscription(params) do
     changeset = Websubhub.Subscription.changeset(%Websubhub.Subscription{}, params)
