@@ -1,5 +1,8 @@
 # Websubhub
 
+![https://travis-ci.org/tamarasaurus/websubhub.svg?branch=master](https://travis-ci.org/tamarasaurus/websubhub.svg?branch=master) ![https://coveralls.io/repos/github/tamarasaurus/websubhub/badge.svg](https://coveralls.io/repos/github/tamarasaurus/websubhub/badge.svg)
+
+
 ## Subscriber
 POST with content type of `application/x-www-form-urlencoded` with the following parameters:
   - `hub.callback`, the subscriber's callback URL that is unique per subscription
@@ -40,3 +43,7 @@ POST with content type of `application/x-www-form-urlencoded` with the following
 ### Generate
 
 - subscription `mix phx.gen.schema Subscription subscriptions topic_url:string callback_url:string expired_at:date\`
+
+### Run tests
+
+- mix test --cover

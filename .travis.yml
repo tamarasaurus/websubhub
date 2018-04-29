@@ -1,0 +1,21 @@
+language: elixir
+elixir: '1.6.4'
+otp_release: '19.0'
+
+addons:
+  postgresql: '9.4'
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c "create user websub with password 'websub';" -U postgres
+  - psql -c "alter user websub CREATEDB;"
+  - psql -c "create database websubhub_test;" -U postgres
+  - mix do ecto.create, ecto.migrate
+
+script:
+  - mix test --cover
+
+notifications:
+  email: false

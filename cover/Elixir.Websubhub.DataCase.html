@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Elixir.Websubhub.DataCase</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/source.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+  </head>
+
+  <body>
+    <div id="content">
+      <h1>Elixir.Websubhub.DataCase Coverage Source Code</h1>
+
+      <table class="source">
+        <thead>
+          <tr>
+            <th>Line Number</th><th>Covered Lines</th><th>Source Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="source"><td class="num"> 1</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+      <a name="#Elixir.Websubhub.DataCase"></a>
+    
+    <pre class="not_covered">defmodule Websubhub.DataCase do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 2</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  @moduledoc """
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 3</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  This module defines the setup for tests requiring
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 4</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  access to the application's data layer.
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 5</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 6</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  You may define functions here to be used as helpers in
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 7</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  your tests.
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 8</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 9</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  Finally, if the test case interacts with the database,
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 10</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  it cannot be async. For this reason, every test runs
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 11</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  inside a transaction which is reset at the beginning
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 12</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  of the test unless the test case is marked as async.
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 13</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  """
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 14</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 15</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  use ExUnit.CaseTemplate
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 16</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 17</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">  using do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 18</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">    quote do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 19</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      alias Websubhub.Repo
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 20</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 21</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      import Ecto
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 22</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      import Ecto.Changeset
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 23</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      import Ecto.Query
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 24</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      import Websubhub.DataCase
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 25</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">    end
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 26</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  end
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 27</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 28</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  setup tags do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 29</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Websubhub.Repo)
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 30</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 31</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">    unless tags[:async] do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 32</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">      Ecto.Adapters.SQL.Sandbox.mode(Websubhub.Repo, {:shared, self()})
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 33</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">    end
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 34</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 35</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">    :ok
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 36</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  end
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 37</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 38</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  @doc """
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 39</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  A helper that transform changeset errors to a map of messages.
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 40</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 41</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      assert {:error, changeset} = Accounts.create_user(%{password: "short"})
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 42</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      assert "password is too short" in errors_on(changeset).password
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 43</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      assert %{password: ["password is too short"]} = errors_on(changeset)
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 44</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 45</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  """
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 46</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+      <a name="#Elixir.Websubhub.DataCase.errors_on.1"></a>
+    
+    <pre class="irrelevant">  def errors_on(changeset) do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 47</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">    Ecto.Changeset.traverse_errors(changeset, fn {message, opts} -&gt;
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 48</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">      Enum.reduce(opts, message, fn {key, value}, acc -&gt;
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 49</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">        String.replace(acc, "%{#{key}}", to_string(value))
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 50</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      end)
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 51</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">    end)
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 52</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  end
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 53</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">end
+</pre>
+  </td>
+</tr>
+
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

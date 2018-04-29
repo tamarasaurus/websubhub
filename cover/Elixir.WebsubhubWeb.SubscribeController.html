@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Elixir.WebsubhubWeb.SubscribeController</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/source.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+  </head>
+
+  <body>
+    <div id="content">
+      <h1>Elixir.WebsubhubWeb.SubscribeController Coverage Source Code</h1>
+
+      <table class="source">
+        <thead>
+          <tr>
+            <th>Line Number</th><th>Covered Lines</th><th>Source Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="source"><td class="num"> 1</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+      <a name="#Elixir.WebsubhubWeb.SubscribeController"></a>
+    
+    <pre class="not_covered">defmodule WebsubhubWeb.SubscribeController do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 2</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">  use WebsubhubWeb, :controller
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 3</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 4</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  def subscribe(conn, %{
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 5</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      "hub.callback" =&gt; callback,
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 6</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      "hub.mode" =&gt; "subscribe",
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 7</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      "hub.topic" =&gt; topic,
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 8</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      "hub.secret" =&gt; secret
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 9</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  }) do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 10</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">    if get_req_header(conn, "content-type") == ["application/x-www-form-urlencoded; charset=utf-8"] do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 11</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 12</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">      json conn, %{callback: callback, mode: "subscribe", topic: topic, secret: secret}
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 13</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">    end
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 14</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 15</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">    send_not_found(conn)
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 16</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  end
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 17</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 18</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+      <a name="#Elixir.WebsubhubWeb.SubscribeController.subscribe.2"></a>
+    
+    <pre class="irrelevant">  def subscribe(conn, _params) do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 19</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">    send_not_found(conn)
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 20</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  end
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 21</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 22</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  defp send_not_found(conn) do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 23</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">    conn
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 24</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">      |&gt; send_resp(404, "Not found")
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 25</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">      |&gt; halt()
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 26</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  end
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 27</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 28</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+      <a name="#Elixir.WebsubhubWeb.SubscribeController.unsubscribe.2"></a>
+    
+    <pre class="irrelevant">  def unsubscribe(conn, %{
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 29</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">    "subscription_id" =&gt; subscription_id,
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 30</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">    "hub.mode" =&gt; "unsubscribe"
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 31</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  }) do
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 32</td>
+  <td class="num">0</td>
+  <td class="elixir">
+    
+    <pre class="not_covered">    send_resp(conn, 410, "Unsubscribed from #{subscription_id}")
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 33</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">  end
+</pre>
+  </td>
+</tr>
+<tr class="source"><td class="num"> 34</td>
+  <td class="num"></td>
+  <td class="elixir">
+    
+    <pre class="irrelevant">end
+</pre>
+  </td>
+</tr>
+
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
