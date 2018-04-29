@@ -11,7 +11,7 @@ defmodule WebsubhubWeb.SubscribeController do
       subscription = upsert_subscription(%{
         callback_url: callback,
         topic_url: topic,
-        expired_at: DateTime.utc_now
+        expired_at: NaiveDateTime.utc_now
       })
 
       json conn, subscription
@@ -42,7 +42,7 @@ defmodule WebsubhubWeb.SubscribeController do
 
     {:ok, subscription} = Websubhub.Repo.insert(
       changeset,
-      on_conflict: [set: [expired_at: DateTime.utc_now]],
+      on_conflict: [set: [expired_at: NaiveDateTime.utc_now]],
       conflict_target: [:callback_url, :topic_url]
     )
 

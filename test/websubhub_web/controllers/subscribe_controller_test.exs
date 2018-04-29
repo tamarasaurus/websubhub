@@ -49,7 +49,32 @@ defmodule WebsubhubWeb.SubscribeControllerTest do
       assert {:ok, response.resp_body} == Poison.encode(subscription)
     end
 
-    test "an existing topic_url and callback_url updates an existing subscription"
+    test "an existing topic_url and callback_url updates an existing subscription", %{conn: conn} do
+      correct_params = %{
+        "hub.callback" => "callback",
+        "hub.mode" => "subscribe",
+        "hub.topic" => "topic",
+        "hub.secret" => "secret"
+      }
+
+      response = conn
+        |> put_req_header("content-type", "application/x-www-form-urlencoded; charset=utf-8")
+        |> post("/subscribe", correct_params)
+
+      assert response.status == 200
+      subscription = Websubhub.Repo.get_by(Websubhub.Subscription, callback_url: "callback", topic_url: "topic")
+      assert {:ok, response.resp_body} == Poison.encode(subscription)
+
+      {:ok, before_update } = Poison.decode(response.resp_body)
+
+      response = conn
+      |> put_req_header("content-type", "application/x-www-form-urlencoded; charset=utf-8")
+      |> post("/subscribe", correct_params)
+
+      {:ok, after_update } = Poison.decode(response.resp_body)
+
+      assert before_update["expired_at"] !== after_update["expired_at"]
+    end
   end
 
   describe "posting to /unsubscribe with" do

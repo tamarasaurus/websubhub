@@ -5,7 +5,7 @@ defmodule Websubhub.Repo.Migrations.CreateSubscriptions do
     create table(:subscriptions, primary_key: false) do
       add :topic_url, :string, primary_key: true
       add :callback_url, :string, primary_key: true
-      add :expired_at, :date
+      add :expired_at, :naive_datetime
       add :id, :string, autogenerate: true
 
       timestamps()
