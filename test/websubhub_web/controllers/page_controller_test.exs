@@ -3,6 +3,6 @@ defmodule WebsubhubWeb.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"
-    assert text_response(conn, 200) =~ "hello websubhub"
+    assert text_response(conn, 200) =~ "endpoints"
   end
 end
