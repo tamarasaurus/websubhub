@@ -1,6 +1,6 @@
 # Websubhub
 
-![https://travis-ci.org/tamarasaurus/websubhub](https://travis-ci.org/tamarasaurus/websubhub.svg?branch=master) ![https://coveralls.io/github/tamarasaurus/websubhub](https://coveralls.io/repos/github/tamarasaurus/websubhub/badge.svg)
+[![Build Status](https://travis-ci.org/tamarasaurus/websubhub.svg?branch=master)](https://travis-ci.org/tamarasaurus/websubhub) [![Coverage Status](https://coveralls.io/repos/github/tamarasaurus/websubhub/badge.svg?branch=master)](https://coveralls.io/github/tamarasaurus/websubhub?branch=master)
 
 
 ## Subscriber
