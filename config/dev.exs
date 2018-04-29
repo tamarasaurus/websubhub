@@ -35,7 +35,6 @@ config :websubhub, WebsubhubWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-      ~r{priv/gettext/.*(po)$},
       ~r{lib/websubhub_web/views/.*(ex)$},
       ~r{lib/websubhub_web/templates/.*(eex)$}
     ]
@@ -52,7 +51,7 @@ config :phoenix, :stacktrace_depth, 20
 config :websubhub, Websubhub.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "websub",
-  password: "websub", 
+  password: "websub",
   database: "websubhub_dev",
   hostname: "localhost",
   pool_size: 10

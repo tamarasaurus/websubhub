@@ -3,14 +3,9 @@ defmodule WebsubhubWeb.SubscribeControllerTest do
 
   describe "posting to /subscribe with" do
     test "wrong parameters returns a 404", %{conn: conn} do
-      response = post(conn, "/subscribe", %{})
-
-      assert response.resp_body == "Not found"
+      response = post(conn, "/subscribe", %{ "test" => "nothing"})
       assert response.status == 404
-
       response = post(conn, "/subscribe")
-
-      assert response.resp_body == "Not found"
       assert response.status == 404
     end
 
@@ -28,7 +23,6 @@ defmodule WebsubhubWeb.SubscribeControllerTest do
         |> put_req_header("content-type", incorrect_content_type)
         |> post("/subscribe", correct_params)
 
-      assert response.resp_body == "Not found"
       assert response.status == 404
     end
 

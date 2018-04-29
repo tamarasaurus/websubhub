@@ -20,14 +20,12 @@ defmodule WebsubhubWeb.SubscribeController do
     end
   end
 
-  def subscribe(conn, _params) do
-    send_not_found(conn)
-  end
+  def subscribe(conn, _params) do send_not_found(conn) end
 
   defp send_not_found(conn) do
     conn
-      |> send_resp(404, "Not found")
-      |> halt()
+      |> put_status(404)
+      |> halt
   end
 
   def unsubscribe(conn, %{

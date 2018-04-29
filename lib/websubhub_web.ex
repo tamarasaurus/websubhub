@@ -22,7 +22,6 @@ defmodule WebsubhubWeb do
       use Phoenix.Controller, namespace: WebsubhubWeb
       import Plug.Conn
       import WebsubhubWeb.Router.Helpers
-      import WebsubhubWeb.Gettext
     end
   end
 
@@ -39,7 +38,6 @@ defmodule WebsubhubWeb do
 
       import WebsubhubWeb.Router.Helpers
       import WebsubhubWeb.ErrorHelpers
-      import WebsubhubWeb.Gettext
     end
   end
 
