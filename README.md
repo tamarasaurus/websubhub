@@ -1,6 +1,6 @@
 # Websubhub
 
-![https://travis-ci.org/tamarasaurus/websubhub.svg?branch=master](https://travis-ci.org/tamarasaurus/websubhub.svg?branch=master) ![https://coveralls.io/repos/github/tamarasaurus/websubhub/badge.svg](https://coveralls.io/repos/github/tamarasaurus/websubhub/badge.svg)
+![https://travis-ci.org/tamarasaurus/websubhub](https://travis-ci.org/tamarasaurus/websubhub.svg?branch=master) ![https://coveralls.io/github/tamarasaurus/websubhub](https://coveralls.io/repos/github/tamarasaurus/websubhub/badge.svg)
 
 
 ## Subscriber
@@ -13,7 +13,7 @@ POST with content type of `application/x-www-form-urlencoded` with the following
 
 ### Subscription
   - id (internal)
-  - subscription_id: [topic_url, callback_url]
+  - [topic_url, callback_url] as the primary key
   - created_at
   - updated_at
   - expired_at
@@ -21,11 +21,11 @@ POST with content type of `application/x-www-form-urlencoded` with the following
 ### Todo
 - [x] Enforce [topic_url,callback_url] as a real id in the database
 - [ ] Create root hub controller
-      - `GET /` - Use HAL to represent availble operations
-      - `POST /` - Publish topic updates and distribute contents to subscribers
+    - [ ] `GET /` - Use HAL to represent availble operations
+    - [ ] `POST /` - Publish topic updates and distribute contents to subscribers
 
 ### Implement
-- [ ] Subscribing to the hub with a callback URL.
+- [x] Subscribing to the hub with a callback URL.
 - [ ] Subscribing to the hub and requesting a specific lease duration.
 - [ ] Subscribing to the hub with a secret and handling authenticated content distribution.
 - [ ] Requesting that a subscription is deactivated by sending an unsubscribe request.
@@ -36,13 +36,13 @@ POST with content type of `application/x-www-form-urlencoded` with the following
 - [ ] The Subscriber rejects the distribution request if the signature does not validate.
 - [ ] The Subscriber rejects the distribution request when no signature is present if the subscription was made with a secret.
 - [ ] The Hub respects the requested lease duration during a subscription request.
-- [ ] The Hub allows Subscribers to re-request already active subscriptions, extending the lease duration.
+- [x] The Hub allows Subscribers to re-request already active subscriptions, extending the lease duration.
 - [ ] The Hub sends the full contents of the topic URL in the distribution request.
 - [ ] The Hub sends a valid signature for subscriptions that were made with a secret.
 
 ### Generate
 
-- subscription `mix phx.gen.schema Subscription subscriptions topic_url:string callback_url:string expired_at:date\`
+- subscription `mix phx.gen.schema Subscription subscriptions topic_url:string callback_url:string expired_at:naive_datetime\`
 
 ### Run tests
 
