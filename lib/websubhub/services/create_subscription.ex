@@ -3,6 +3,7 @@ defmodule Websubhub.CreateSubscription do
   import Websubhub.Repo, only: [insert: 2]
   import Map, only: [take: 2]
 
+  @spec upsert(callback_url :: String.t, topic_url :: String.t) :: map
   def upsert(callback_url, topic_url) do
     changeset = Subscription.changeset(%Subscription{}, %{
       callback_url: callback_url,
