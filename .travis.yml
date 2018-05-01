@@ -15,8 +15,10 @@ before_script:
   - MIX_ENV=test mix ecto.create
   - MIX_ENV=test mix ecto.migrate
 
+env:
+  - MIX_ENV=test
+
 script:
-  - mix test
   - mix coveralls.travis
 
 notifications:
