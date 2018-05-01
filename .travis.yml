@@ -16,7 +16,8 @@ before_script:
   - MIX_ENV=test mix ecto.migrate
 
 script:
-  - mix test --cover
+  - mix test
+  - mix coveralls.travis
 
 notifications:
   email: false

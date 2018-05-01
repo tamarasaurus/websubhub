@@ -1,5 +1,7 @@
 defmodule Websubhub.DistributeContent do
-  def distribute() do
 
+  @spec distribute(number) :: integer
+  def distribute(number) do
+    number
   end
 end

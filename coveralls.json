@@ -1,0 +1,8 @@
+{
+  "skip_files": [
+      "test/support/data_case.ex",
+      "lib/websubhub_web/endpoint.ex",
+      "lib/websubhub/repo.ex",
+      "lib/websubhub.ex"
+  ]
+}

@@ -11,19 +11,7 @@ defmodule Websubhub.Mixfile do
       start_permanent: Mix.env == :prod,
       aliases: aliases(),
       deps: deps(),
-      test_coverage: [tool: Coverex.Task, coveralls: true, ignore_modules: [
-        Elixir.Poison.Encoder.Websubhub.Subscription,
-        Elixir.Websubhub.DataCase,
-        Elixir.Websubhub,
-        Elixir.WebsubhubWeb,
-        Elixir.WebsubhubWeb.ConnCase,
-        Elixir.Websubhub.DataCase,
-        Elixir.WebsubhubWeb.Router.Helpers,
-        Elixir.Websubhub.Repo,
-        Elixir.WebsubhubWeb.Router,
-        Elixir.WebsubhubWeb.Endpoint,
-        Elixir.Websubhub.Application
-      ]]
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
@@ -53,8 +41,9 @@ defmodule Websubhub.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:cowboy, "~> 1.0"},
-      {:coverex, "~> 1.4.10", only: :test},
-      {:poison, "~> 3.1"}
+      # {:coverex, "~> 1.4.10", only: :test},
+      {:poison, "~> 3.1"},
+      {:excoveralls, github: "parroty/excoveralls"}
     ]
   end
 
