@@ -42,7 +42,6 @@ defmodule Websubhub.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:cowboy, "~> 1.0"},
-      # {:coverex, "~> 1.4.10", only: :test},
       {:poison, "~> 3.1"},
       {:excoveralls, github: "parroty/excoveralls"}
     ]
