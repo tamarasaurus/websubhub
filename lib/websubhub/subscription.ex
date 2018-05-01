@@ -3,7 +3,7 @@ defmodule Websubhub.Subscription do
   import Ecto.Changeset
 
   @derive {Poison.Encoder, only: [:callback_url, :expired_at, :topic_url]}
-  @primary_key {:id, :binary_id, autogenerate: true}
+  @primary_key {:id, :id, autogenerate: true}
   schema "subscriptions" do
     field :callback_url, :string
     field :topic_url, :string

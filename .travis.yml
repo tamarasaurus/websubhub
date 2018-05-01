@@ -11,7 +11,6 @@ services:
 before_script:
   - psql -c "create user websub with password 'websub';" -U postgres
   - psql -c "alter user websub CREATEDB;"
-  # - psql -c "create database websubhub_test;" -U postgres
   - MIX_ENV=test mix ecto.drop
   - MIX_ENV=test mix ecto.create
   - MIX_ENV=test mix ecto.migrate
