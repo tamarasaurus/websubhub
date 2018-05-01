@@ -2,9 +2,7 @@ defmodule WebsubhubWeb.HubController do
   use WebsubhubWeb, :controller
   import Websubhub.DistributeContent, only: [distribute: 0]
 
-  def endpoints(conn, %{}) do
-    text conn, "endpoints"
-  end
+  def endpoints(conn, %{}), do: text conn, "endpoints"
 
   def publish(conn, %{}) do
     distribute()

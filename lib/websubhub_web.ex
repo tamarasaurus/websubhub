@@ -37,7 +37,7 @@ defmodule WebsubhubWeb do
       use Phoenix.HTML
 
       import WebsubhubWeb.Router.Helpers
-      import WebsubhubWeb.ErrorHelpers
+      # import WebsubhubWeb.ErrorHelpers
     end
   end
 
