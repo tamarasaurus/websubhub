@@ -5,7 +5,12 @@ defmodule WebsubhubWeb.HubController do
     text conn, "endpoints"
   end
 
-  def distribute(conn, %{}) do
+  def publish(conn, %{}) do
+    distribute()
     json conn, "ok"
+  end
+
+  defp distribute do
+
   end
 end
