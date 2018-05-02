@@ -14,9 +14,6 @@ defmodule WebsubhubWeb.Router do
   end
 
   scope "/", WebsubhubWeb do
-    get "/", HubController, :endpoints
-    post "/", HubController, :publish
-    post "/subscribe", SubscribeController, :subscribe
-    post "/unsubscribe", SubscribeController, :unsubscribe
+    post "/", HubController, :validate
   end
 end
