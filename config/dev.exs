@@ -50,8 +50,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :websubhub, Websubhub.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "websub",
-  password: "websub",
+  username: "postgres",
+  password: "",
   database: "websubhub_dev",
   hostname: "localhost",
   pool_size: 10
