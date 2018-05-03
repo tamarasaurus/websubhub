@@ -1,12 +1,22 @@
 defmodule Websubhub.Application do
   use Application
 
+  defp poolboy_config do
+    [
+      {:name, {:local, :worker}},
+      {:worker_module, Websubhub.ValidateIntent},
+      {:size, 5},
+      {:max_overflow, 2}
+    ]
+  end
+
   def start(_type, _args) do
     import Supervisor.Spec
 
     children = [
       supervisor(Websubhub.Repo, []),
-      supervisor(WebsubhubWeb.Endpoint, [])
+      supervisor(WebsubhubWeb.Endpoint, []),
+      :poolboy.child_spec(:worker, poolboy_config())
     ]
 
     opts = [strategy: :one_for_one, name: Websubhub.Supervisor]

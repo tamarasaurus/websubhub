@@ -20,7 +20,7 @@ defmodule WebsubhubWeb.Endpoint do
   plug Plug.Logger
 
   plug Plug.Parsers,
-    parsers: [:urlencoded, :multipart, :json],
+    parsers: [:urlencoded],
     pass: ["*/*"],
     json_decoder: Poison
 
