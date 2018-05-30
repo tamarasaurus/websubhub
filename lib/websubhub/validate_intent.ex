@@ -40,7 +40,7 @@ defmodule Websubhub.ValidateIntent do
   end
 
   defp handle_response({:error, response}, _) do
-    IO.inspect(response)
+    # IO.inspect(response)
   end
 
 
