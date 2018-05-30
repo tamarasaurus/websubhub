@@ -28,7 +28,7 @@ POST with content type of `application/x-www-form-urlencoded` with the following
 - [ ] Discovering the hub and topic URLs by looking at the HTTP headers of the resource URL.
 - [ ] Discovering the hub and topic URLs by looking at the contents of the resource URL as an XML document.
 - [ ] Discovering the hub and topic URLs by looking at the contents of the resource URL as an HTML document.
-- [ ] Subscribing to the hub with a callback URL.
+- [x] Subscribing to the hub with a callback URL.
 - [ ] Subscribing to the hub and requesting a specific lease duration.
 - [ ] Subscribing to the hub with a secret and handling authenticated content distribution.
 - [ ] Requesting that a subscription is deactivated by sending an unsubscribe request.

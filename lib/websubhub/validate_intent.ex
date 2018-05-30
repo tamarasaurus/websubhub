@@ -2,6 +2,7 @@ defmodule Websubhub.ValidateIntent do
   use GenServer
 
   import Websubhub.CreateSubscription, only: [upsert: 2]
+  import Websubhub.RemoveSubscription, only: [remove: 1]
 
   def start_link(_) do
     GenServer.start_link(__MODULE__, nil, [])
@@ -22,18 +23,25 @@ defmodule Websubhub.ValidateIntent do
     {:reply, :ok, state}
   end
 
-  defp handle_response({:ok, response}, subscription) do
+  defp handle_response({:ok, response}, %{ "hub.callback" => _, "hub.topic" => _, "hub.mode" => "subscribe" } = subscription) do
     challenge = subscription["hub.challenge"]
 
-    if (response.body == challenge) do
-        upsert(subscription["hub.callback"], subscription["hub.topic"]);
-    end
+    if (response.body == challenge), do: upsert(subscription["hub.callback"], subscription["hub.topic"]);
 
     nil
   end
 
-  defp handle_response({:error, response}, subscription) do
+  defp handle_response({:ok, response}, %{ "hub.callback" => _, "hub.topic" => _, "hub.mode" => "unsubscribe" } = subscription) do
+    challenge = subscription["hub.challenge"]
+
+    if (response.body == challenge), do: remove(subscription);
+
+    nil
+  end
+
+  defp handle_response({:error, response}, _) do
     IO.inspect(response)
   end
+
 
 end
