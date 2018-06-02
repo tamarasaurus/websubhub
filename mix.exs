@@ -43,7 +43,9 @@ defmodule Websubhub.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:cowboy, "~> 1.0"},
       {:poison, "~> 3.1"},
-      {:excoveralls, github: "parroty/excoveralls"}
+      {:excoveralls, github: "parroty/excoveralls"},
+      {:poolboy, "~> 1.5.1"},
+      {:httpoison, "~> 1.1"}
     ]
   end
 

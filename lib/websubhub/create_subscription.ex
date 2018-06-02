@@ -14,7 +14,11 @@ defmodule Websubhub.CreateSubscription do
     {:ok, subscription} =
       insert(
         changeset,
-        on_conflict: [set: [expired_at: NaiveDateTime.utc_now()]],
+        on_conflict: [set: [
+          callback_url: callback_url,
+          topic_url: topic_url,
+          expired_at: NaiveDateTime.utc_now()
+        ]],
         conflict_target: [:callback_url, :topic_url]
       )
 
